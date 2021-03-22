@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 import { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 const useStyles = makeStyles({
     dropZone: {
