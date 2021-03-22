@@ -56,7 +56,6 @@ const FormData = (): JSX.Element => {
       );
     }
   }
-
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = async (data: any) => {
     console.log(data);
