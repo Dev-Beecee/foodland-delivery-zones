@@ -1,8 +1,8 @@
 {
-  "homepage":"https://dev-beecee.github.io/foodland-delivery-zones",
   "name": "beecee-zone",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://dev-beecee.github.io/foodland-delivery-zones",
   "dependencies": {
     "@jamesives/github-pages-deploy-action": "^4.1.0",
     "@material-ui/styles": "^4.11.3",
