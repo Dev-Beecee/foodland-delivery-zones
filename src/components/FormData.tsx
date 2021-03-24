@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/styles";
 import axios from "axios";
 import { useState } from "react";
-import { Container, Button, Form } from "react-bootstrap";
+import { Button, Form, FormControl } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import dotenv from 'dotenv';
 
@@ -90,7 +90,8 @@ const FormData = (): JSX.Element => {
           data: JSON.stringify(coordinates),
           schedule: JSON.stringify({enabled : true, lapses : {open : {hour:0 , minute:0}, close : {hour:23 , minute:59}}})
         }
-      })
+      }).then(response => console.log(response.status))
+        .catch(err => console.error(err));
     };
     console.log(watch("example"));
   }
@@ -98,11 +99,11 @@ const FormData = (): JSX.Element => {
     <>
       <Form onSubmit={handleSubmit(onSubmit)} className="col">
         <Form.Label>id du Restaurant</Form.Label>
-        <input
+        <FormControl
           ref={register}
           name="idBusiness"
           type="text"
-          className="form-control m-0"
+          placeholder="id du restaurant"
         />
 
         <Form.Label>Nom de la zone</Form.Label>
@@ -152,7 +153,6 @@ const FormData = (): JSX.Element => {
           Envoyer{" "}
         </Button>
       </Form>
-      <Container fluid></Container>
     </>
   );
 };
