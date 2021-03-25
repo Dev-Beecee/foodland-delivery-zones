@@ -2,7 +2,6 @@ import { Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import generatePassword  from "password-generator";
 import { useState } from "react";
-import axios from "axios";
 import * as dotenv from 'dotenv';
 import nodefetch from 'node-fetch';
 
@@ -10,7 +9,7 @@ dotenv.config()
 
 export const FormLivrer = () : JSX.Element => {
     const [driverGroups , setDriverGroups] = useState<{id: Number, name: String}[]>();
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
     const onSubmit = async (data : any) => {
         console.log(data);
         const maxLength = 18;
@@ -66,7 +65,6 @@ export const FormLivrer = () : JSX.Element => {
             .then(res => res.json())
             .then(json => {
                 console.log(json);
-                const dgUrl = 'https://apiv4.ordering.co/v400/en/demo/users/9?params=driver_groups,id'
             })
             .catch(err => console.error(err))
     }
