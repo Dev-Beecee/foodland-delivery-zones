@@ -76,7 +76,7 @@ const FormData = (): JSX.Element => {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': process.env.APIKEY,
+          'x-api-key': process.env.APIKEY
         },
         url: `https://apiv4.ordering.co/v400/en/foodland/business/${data.idBusiness}/deliveryzones`,
         responseType:'json',

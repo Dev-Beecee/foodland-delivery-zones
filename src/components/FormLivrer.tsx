@@ -2,8 +2,9 @@ import { Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import generatePassword  from "password-generator";
 import { useState } from "react";
-import dotenv from 'dotenv';
-
+import axios from "axios";
+import * as dotenv from 'dotenv';
+import nodefetch from 'node-fetch';
 
 dotenv.config()
 
@@ -16,33 +17,58 @@ export const FormLivrer = () : JSX.Element => {
         const minLength = 8;
         let randomLength = Math.floor(Math.random() * (maxLength - minLength)) + minLength;
         let password = generatePassword(randomLength, false, /[\w\d?-]/, `${data.name[0]}-`);
-        
         const url = 'https://apiv4.ordering.co/v400/en/foodland/users';
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'x-api-key': 'sMbNsNE6X7eq3kNJwSh0YtSdM7dWv81BB5_Vrb0dpKkk1bkqcisngoF01uCxbXwSy' 
+                'x-api-key': 'sMbNsNE6X7eq3kNJwSh0YtSdM7dWv81BB5_Vrb0dpKkk1bkqcisngoF01uCxbXwSy'
             },
             body: JSON.stringify({
-               name: data.name,
-               lastname: data.lastname,
-               email: data.email,
-               password: password,
-               cellphone: data.cellphone,
-               level : 4,
-               city_id: 1,
-               location: JSON.stringify({lat: 0, lng: 1}),
-               drivergroups: { 0: {id : data.drivergroups}}
-
-               
+                country_phone_code: 1,
+                level: 4,
+                busy: false,
+                available: true,
+                enabled: true,
+                name: data.name,
+                lastname: data.lastname,
+                email: data.email,
+                password: password,
+                cellphone: data.cellphone,
             })
         }
-        fetch(url, options)
+        console.log(options)
+        /*axios({
+            method: 'post',
+            url: url,
+            headers : {
+                'Content-Type': 'application/json',
+                'x-api-key': process.env.APIKEY
+            },
+            responseType:'json',
+            data: {
+                name: data.name,
+                lastname: data.lastname,
+                email: data.email,
+                password: password,
+                cellphone: data.cellphone,
+                level : 4,
+                city_id: 1,
+                location: JSON.stringify({lat: 0, lng: 1}),
+                drivergroups: { 0: {id : data.drivergroups}}
+            }
+        })
+        .then(response => console.log(response))
+        .catch(err => console.error(err))*/
+        
+
+        nodefetch(url, options)
             .then(res => res.json())
-            .then(json => console.log(json))
+            .then(json => {
+                console.log(json);
+                const dgUrl = 'https://apiv4.ordering.co/v400/en/demo/users/9?params=driver_groups,id'
+            })
             .catch(err => console.error(err))
-        console.log(watch("example"));
     }
         const driverUrl = 'https://apiv4.ordering.co/v400/en/foodland/drivergroups';
         const driversOptions = {
