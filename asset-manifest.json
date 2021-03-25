@@ -1,22 +1,17 @@
 {
   "files": {
-    "main.css": "/foodland-delivery-zones/static/css/main.e40bf2e9.chunk.css",
-    "main.js": "/foodland-delivery-zones/static/js/main.e48482e1.chunk.js",
-    "main.js.map": "/foodland-delivery-zones/static/js/main.e48482e1.chunk.js.map",
-    "runtime-main.js": "/foodland-delivery-zones/static/js/runtime-main.8aad8fe3.js",
-    "runtime-main.js.map": "/foodland-delivery-zones/static/js/runtime-main.8aad8fe3.js.map",
-    "static/js/2.4f56dbf8.chunk.js": "/foodland-delivery-zones/static/js/2.4f56dbf8.chunk.js",
-    "static/js/2.4f56dbf8.chunk.js.map": "/foodland-delivery-zones/static/js/2.4f56dbf8.chunk.js.map",
-    "static/js/3.1ebe90b6.chunk.js": "/foodland-delivery-zones/static/js/3.1ebe90b6.chunk.js",
-    "static/js/3.1ebe90b6.chunk.js.map": "/foodland-delivery-zones/static/js/3.1ebe90b6.chunk.js.map",
+    "main.css": "/foodland-delivery-zones/static/css/main.f10bfced.chunk.css",
+    "main.js": "/foodland-delivery-zones/static/js/main.9f81fa78.chunk.js",
+    "runtime-main.js": "/foodland-delivery-zones/static/js/runtime-main.a024cd98.js",
+    "static/js/2.ddf44918.chunk.js": "/foodland-delivery-zones/static/js/2.ddf44918.chunk.js",
+    "static/js/3.afbf6e08.chunk.js": "/foodland-delivery-zones/static/js/3.afbf6e08.chunk.js",
     "index.html": "/foodland-delivery-zones/index.html",
-    "static/css/main.e40bf2e9.chunk.css.map": "/foodland-delivery-zones/static/css/main.e40bf2e9.chunk.css.map",
-    "static/js/2.4f56dbf8.chunk.js.LICENSE.txt": "/foodland-delivery-zones/static/js/2.4f56dbf8.chunk.js.LICENSE.txt"
+    "static/js/2.ddf44918.chunk.js.LICENSE.txt": "/foodland-delivery-zones/static/js/2.ddf44918.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8aad8fe3.js",
-    "static/js/2.4f56dbf8.chunk.js",
-    "static/css/main.e40bf2e9.chunk.css",
-    "static/js/main.e48482e1.chunk.js"
+    "static/js/runtime-main.a024cd98.js",
+    "static/js/2.ddf44918.chunk.js",
+    "static/css/main.f10bfced.chunk.css",
+    "static/js/main.9f81fa78.chunk.js"
   ]
 }
