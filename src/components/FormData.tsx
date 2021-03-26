@@ -68,8 +68,11 @@ const FormData = (): JSX.Element => {
           .slice(1, nfCoords.split("\n").length - 1)
           .reverse()
           .map((item) => {
-            return { lat: Number(item[1]), lng: Number(item[0]) };
+            let sep = item.split(',')
+            console.log(sep)
+            return { lat: Number(sep[1]), lng: Number(sep[0]) };
           });
+        console.log(coords)
         setCoordinates(coords);
       });
       axios({
@@ -90,7 +93,7 @@ const FormData = (): JSX.Element => {
           data: JSON.stringify(coordinates),
           schedule: JSON.stringify({enabled : true, lapses : {open : {hour:0 , minute:0}, close : {hour:23 , minute:59}}})
         }
-      }).then(response => console.log(response.status))
+      }).then(response => console.log(response))
         .catch(err => console.error(err));
     };
     console.log(watch("example"));
