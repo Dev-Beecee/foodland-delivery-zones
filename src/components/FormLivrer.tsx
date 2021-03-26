@@ -73,11 +73,23 @@ export const FormLivrer = (): JSX.Element => {
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-        fetch('')
+        /*const url = `https://apiv4.ordering.co/v400/fr/foodland/drivergroups/${data.drivergroups}`
+        const options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key":
+              "sMbNsNE6X7eq3kNJwSh0YtSdM7dWv81BB5_Vrb0dpKkk1bkqcisngoF01uCxbXwSy",
+          },
+          body: JSON.stringify({
+
+          })
+        
+        } */
       })
       .catch((err) => console.error(err));
   };
-  const driverUrl = "https://apiv4.ordering.co/v400/en/foodland/drivergroups";
+  const driverUrl = "https://apiv4.ordering.co/v400/en/foodland/drivergroups/";
   const driversOptions = {
     method: "GET",
     headers: {
@@ -89,6 +101,7 @@ export const FormLivrer = (): JSX.Element => {
     fetch(driverUrl, driversOptions)
       .then((res) => res.json())
       .then((out) => {
+        console.log(out)
         let groups: { id: Number; name: String }[] = out.result.map(
           (group: { id: Number; name: String }) => {
             return {
@@ -97,6 +110,7 @@ export const FormLivrer = (): JSX.Element => {
             };
           }
         );
+        console.log(groups)
         setDriverGroups(groups);
       });
   });
