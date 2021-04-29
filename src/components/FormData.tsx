@@ -38,8 +38,21 @@ const FormData = (): JSX.Element => {
   
   const handleClick = (e: { target: any }): any => {
     const file = e.target.files[0];
-    file.text().then((text: string) => console.log(text));
-    setSelectedFile(file);
+    file.text().then((text: string) => {
+      let nfCoords = text.split("<coordinates>")[1].split("</coordinates>")[0];
+      let coords = nfCoords
+        .split("\n")
+        .slice(1, nfCoords.split("\n").length - 1)
+        .reverse()
+        .map((item) => {
+          let sep = item.split(',')
+        //  console.log(sep)
+          return { lat: Number(sep[1]), lng: Number(sep[0]) };
+        });
+      //console.log(coords)
+      setCoordinates(coords);
+    });
+    setSelectedFile(file)    
   };
 
   function dropZone() {
@@ -59,22 +72,8 @@ const FormData = (): JSX.Element => {
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = async (data: any) => {
     console.log(data);
-    const file = data.file[0];
-    if(file){
-      await file.text().then((text: string) => {
-        let nfCoords = text.split("<coordinates>")[1].split("</coordinates>")[0];
-        let coords = nfCoords
-          .split("\n")
-          .slice(1, nfCoords.split("\n").length - 1)
-          .reverse()
-          .map((item) => {
-            let sep = item.split(',')
-            console.log(sep)
-            return { lat: Number(sep[1]), lng: Number(sep[0]) };
-          });
-        console.log(coords)
-        setCoordinates(coords);
-      });
+    if(coordinates){
+      console.log(coordinates);
       axios({
         method: 'post',
         headers: {
